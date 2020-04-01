@@ -57,12 +57,12 @@ export default {
     display: flex
     height: 1.9rem
     overflow: hidden
+    padding-bottom .2rem
     .item-img
       width: 1.7rem
       height: 1.7rem
       padding .1rem
     .item-info
-      flex 1
       padding 0 .1rem
       min-width 0
       .item-tittle
