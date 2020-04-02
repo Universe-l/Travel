@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOptions">
+        <swiper :options="swiperOptions" v-if="showSwiper">
             <swiper-slide v-for="item of swiperList" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl" />
             </swiper-slide>
@@ -17,14 +17,15 @@ export default {
       swiperOptions: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: '//img1.qunarzz.com/sight/p0/1412/85/fc4b88c4d559fd35dfc0f66e0f0e2ee5.water.jpg_600x330_534f2597.jpg'
-      }, {
-        id: '0002',
-        imgUrl: '//img1.qunarzz.com/sight/p0/1412/ad/32a5e0cd8baa07f908eab28e03d5a89f.water.jpg_600x330_353965dc.jpg'
-      }]
+      }
+    }
+  },
+  props: {
+    swiperList: Array
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
     }
   }
 }

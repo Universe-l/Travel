@@ -5,7 +5,7 @@
            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
                <img class="item-img" :src="item.imgUrl" />
                <div class="item-info">
-                   <p class="item-tittle">{{item.tittle}}</p>
+                   <p class="item-tittle">{{item.title}}</p>
                    <p class="item-desc">{{item.desc}}</p>
                    <button class="item-btn">查看详情</button>
                </div>
@@ -17,30 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1507/cc/19733fc0135062788140cbb48ae606a7.water.jpg_200x200_d9ebe2fd.jpg',
-        tittle: '北京野生动物园',
-        desc: '敢与森林之王近距离接触吗？'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1708/2b/2b3b94de99c0a425a3.img.jpg_200x200_2458ffb2.jpg',
-        tittle: '八达岭长城',
-        desc: '不到长城非好汉'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_200x200_2cce447f.jpg',
-        tittle: '颐和园',
-        desc: '中国现存最大的皇家园林'
-      }, {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_200x200_444cc7e8.jpg',
-        tittle: '圆明园',
-        desc: '百年皇家的珍宝,民族耻辱的见证'
-      }]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>

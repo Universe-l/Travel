@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-      <swiper :options="swiperOptions">
+      <swiper :options="swiperOptions" v-if="showIcon">
          <swiper-slide v-for="(page, index) of pages" :key="index">
             <div class="icon" v-for="item of page" :key="item.id">
               <div class="icon-img">
@@ -9,7 +9,6 @@
               <p class="icon-desc">{{item.desc}}</p>
             </div>
          </swiper-slide>
-         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
 </template>
@@ -17,49 +16,14 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
       swiperOptions: {
-        pagination: '.swiper-pagination',
-        loop: true
-      },
-      iconList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        desc: '热门景点'
-      }, {
-        id: '0002',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20199/04d7a7cceb72eb395107b5cfc4f0791b.png',
-        desc: '萌宠呀诺达'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-        desc: '三亚必游'
-      }, {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/27/dac2bcf9added702.png',
-        desc: '海滨海岛'
-      }, {
-        id: '0005',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-        desc: '一日游'
-      }, {
-        id: '0006',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
-        desc: '亲子乐园'
-      }, {
-        id: '0007',
-        imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-        desc: '西岛'
-      }, {
-        id: '0008',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/437aad2dd0c1edb38fee0c51f8f9dd02.png',
-        desc: '精彩演出'
-      }, {
-        id: '0009',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/437aad2dd0c1edb38fee0c51f8f9dd02.png',
-        desc: '精彩演出'
-      }]
+        autoplay: false
+      }
     }
   },
   computed: {
@@ -73,6 +37,9 @@ export default {
         pages[page].push(item)
       })
       return pages
+    },
+    showIcon () {
+      return this.iconList.length
     }
   }
 }
