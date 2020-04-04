@@ -9,17 +9,6 @@
                 </div>
                 城市选择
             </div>
-            <div class="header-option">
-                <ul>
-                    <li class="li-active">
-                        境内
-                    </li>
-                    <li class="li">
-                        境外城市
-                    </li>
-                </ul>
-
-            </div>
         </div>
     </div>
 </template>
@@ -49,22 +38,4 @@ export default {
       font-size .3rem
       .back-icon
         color white
-  .header-option
-    height .4rem
-    line-height .4rem
-    border-top .01rem solid white
-    padding .2rem 1rem
-    ul li {
-      float left
-      text-align center
-    }
-    .li
-      border .001rem solid white
-      width 49%
-      color white
-    .li-active
-      width 50%
-      background white
-      text-align center
-      color $bgColor
 </style>
