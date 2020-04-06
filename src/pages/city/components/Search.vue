@@ -5,7 +5,12 @@
     </div>
     <div class="search-content" ref="search" v-show="keywords">
       <ul>
-        <li v-for="item of list" :key="item.id" class="search-item border-bottom">
+        <li
+          class="search-item border-bottom"
+          v-for="item of list"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
+        >
           {{item.name}}
         </li>
         <li class="search-item border-bottom" v-show="hasNoData">没有匹配数据</li>
@@ -28,6 +33,12 @@ export default {
   },
   props: {
     cities: Object
+  },
+  methods: {
+    handleCityClick (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
   },
   computed: {
     hasNoData () {
@@ -92,4 +103,5 @@ export default {
       padding-left .2rem
       color #666
       background #ffffff
+      touch-action none
 </style>
